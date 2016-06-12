@@ -1,8 +1,15 @@
 {
-  "name": "rzajac/vagrant-prov",
-  "description": "Vagrant provisioning scripts for PHP, MySQL, Apache and Nginx",
+  "name": "rzajac/php-tutorial",
+  "description": "PHP tutorial",
   "type": "project",
-  "keywords": ["vagrant"],
+  "keywords": [
+    "tutorial",
+    "php"
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "rzajac/vagrant-prov": "^2.2"
+  },
   "license": "Apache License 2.0",
   "authors": [
     {
@@ -10,10 +17,12 @@
       "email": "rzajac@gmail.com"
     }
   ],
-  "require": {
-    "php": ">=5.5.0"
-  },
-  "bin": [
-    "provision/bin/php-vagrant-init"
-  ]
+  "scripts": {
+    "post-package-install": [
+      "php vendor/bin/php-vagrant-init"
+    ],
+    "post-package-update": [
+      "php vendor/bin/php-vagrant-init"
+    ]
+  }
 }

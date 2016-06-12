@@ -1,2 +1,0 @@
--- MySQL database seed.
--- Any SQL put in this file will be loaded during provisioning.

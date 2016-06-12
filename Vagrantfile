@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_check_update = false
 
   # Set hostname.
-  config.vm.hostname = "phptut"
+  config.vm.hostname = "guest"
 
   # Port forwarding.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Folder sharing.
   config.vm.synced_folder ".", "/vagrant", :owner => "vagrant"
-  config.vm.synced_folder "lessons", "/usr/local/var/www/lessons", :owner => "vagrant"
+  config.vm.synced_folder "lessons", "/usr/local/var/www/phptut", :owner => "vagrant"
 
   if Dir.exists?("vendor/rzajac/vagrant-prov")
     provision_dir = "vendor/rzajac/vagrant-prov/provision"
