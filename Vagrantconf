@@ -30,12 +30,15 @@ PROVISION_SH_DIR=/provision
 
 # The name of the project.
 # It must contain only letters and digits.
-PROJECT_NAME="PHPTutorial"
+PROJECT_NAME="PHPTut"
 
 # The project directory name.
 # This directory will be created in /usr/local/var/www/.
 # It must contain only letters and digits.
-PROJECT_DIR_NAME="phptut"
+# IMPORTANT
+# This has to match with the line in Vagrantfile:
+# config.vm.synced_folder "project", "/usr/local/var/www/myproject", :owner => "vagrant"
+PROJECT_DIR_NAME="lessons"
 
 # The path to where index file is located. 
 # Relative to project root folder.
@@ -45,37 +48,11 @@ PROJECT_INDEX_DIR=""
 PROJECT_DEV_DOMAIN="phptut.dev"
 
 ###########################################################
-# Apache.
-###########################################################
-
-# Enable Apache provisioning. Set to "no" to disable. 
-APACHE_ENABLE="no"
-
-# Apache modules to enable.
-APACHE_MODULES="rewrite"
-
-###########################################################
 # Nginx.
 ###########################################################
 
 # Enable Nginx provisioning. Set to "no" to disable. 
-NGINX_ENABLE="yes"
-
-###########################################################
-# PHP 5.5.
-###########################################################
-
-# Enable PHP 5.5 provisioning. Set to "no" to disable.
-PHP5_ENABLE="no"
-
-# The list of PHP packages to install.
-PHP5_PACKAGES="php5-cli php5-json php5-dev php5-mysql php5-curl php5-gd"
-PHP5_PACKAGES+=" php-pear php5-imagick php5-mcrypt php5.5-mbstring php5-memcached"
-PHP5_PACKAGES+=" php5-xdebug"
-
-# Pick web server to configure PHP with.
-# Valid values are empty string or: apache, nginx
-PHP5_WEB_SERVER="apache"
+NGINX_ENABLE="no"
 
 ###########################################################
 # PHP 7.x.
@@ -85,12 +62,13 @@ PHP5_WEB_SERVER="apache"
 PHP7_ENABLE="yes"
 
 # The list of PHP packages to install.
-PHP7_PACKAGES="php7.1-common php7.1-cli php7.1-json php7.1-dev php7.1-mysql php7.1-curl php7.1-gd"
-PHP7_PACKAGES+=" php7.1-mcrypt php7.1-mbstring"
+PHP7_PACKAGES="php7.0-common php7.0-cli php7.0-json php7.0-dev php7.0-mysql php7.0-curl php7.0-gd"
+PHP7_PACKAGES+=" php7.0-mcrypt php7.0-mbstring"
 PHP7_PACKAGES+=" php-memcached php-msgpack php-igbinary"
 
+PHP7_XDEBUG="yes"
+
 # Pick web server to configure PHP with.
-# Valid values are empty string or: apache, nginx
 PHP7_WEB_SERVER="nginx"
 
 ###########################################################
@@ -114,4 +92,3 @@ MYSQL_APP_DB="${PROJECT_NAME}"
 
 # Enable memcahced provisioning. Set to "no" to disable. 
 MEMCACHED_ENABLE="yes"
-

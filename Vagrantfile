@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Folder sharing.
   config.vm.synced_folder ".", "/vagrant", :owner => "vagrant"
-  config.vm.synced_folder "lessons", "/usr/local/var/www/phptut", :owner => "vagrant"
+  config.vm.synced_folder "lessons", "/usr/local/var/www/lessons", :owner => "vagrant"
 
   if Dir.exists?("vendor/rzajac/vagrant-prov")
     provision_dir = "vendor/rzajac/vagrant-prov/provision"
